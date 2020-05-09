@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="static/css/montserrat.css">
+    <link rel="stylesheet" href="static/css/baloo2.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.min.css">
+    <link rel="stylesheet" href="static/css/highlight.min.css">
+    <link rel="stylesheet" href="static/css/rxmicro.css">
+    <title>RxMicro Framework</title>
+</head>
+<body>
+<main>
+    <section id="welcome" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-1 col-md-10 col-sm-12">
+                    <img src="static/img/rxmicro-logo.png" class="rounded mx-auto d-block logo">
+                    <h1><strong class="name">RxMicro</strong> is a modern, full-stack framework for building <strong>reactive</strong>
+                        microservices using Java 11</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container buttons">
+            <a href="https://docs.rxmicro.io/latest/user-guide/index.html" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-book"></i> User Guide
+            </a>
+            <a href="https://github.com/rxmicro/rxmicro-usage/tree/master/examples" class="btn btn-outline-light btn-lg">
+                <i class="far fa-file-code"></i> Examples
+            </a>
+            <a href="https://github.com/rxmicro/rxmicro" class="btn btn-outline-light btn-lg">
+                <i class="fab fa-github"></i> Source Code
+            </a>
+            <a href="https://github.com/rxmicro/rxmicro/issues" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-bug"></i> Issues
+            </a>
+        </div>
+        <div class="latest-release">
+            <a href="https://github.com/rxmicro/rxmicro/releases">
+                <img src="https://img.shields.io/github/v/release/rxmicro/rxmicro?color=green&logoColor=yellow&logo=webpack"
+                     alt="Latest RxMicro Release"/>
+            </a>
+            <a href="https://search.maven.org/search?q=io.rxmicro">
+                <img src="https://img.shields.io/maven-central/v/io.rxmicro/rxmicro?color=green&logoColor=yellow&logo=apache-maven"
+                     alt="Available on Maven Central"
+                     style="height:32px;padding-top:1px;"/>
+            </a>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <section id="about" class="container">
+        <h2 class="text-center">What is RxMicro?</h2>
+        <div>
+            <p>
+                <strong>RxMicro</strong> is a non-blocking framework,
+                which supports <a href="https://en.wikipedia.org/wiki/Reactive_programming">the reactive programming style</a> only.
+                This means your app can handle a lot of concurrency using a small number of kernel threads.
+                <strong>Any blocking operations are not supported!</strong><br>
+                <i>(For using of the blocking operations You must choose any other framework or library).</i>
+            </p>
+            <p>
+                The <strong>RxMicro</strong> framework contains several different components designed to make it easier for you to write compelling
+                reactive applications using <a href="https://openjdk.java.net/projects/jdk/11/">Java 11</a> or higher.
+            </p>
+            <p>
+                The <strong>RxMicro</strong> framework uses the
+                <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/javax/annotation/processing/Processor.html">
+                    Java annotation processors
+                </a>.
+                This means during compiling Your microservice project, the <strong>RxMicro</strong> framework reads the <code>RxMicro Annotations</code>
+                and generates additional classes that contain the standard logic: registration of URL mapping, serialization, and deserialization of Java
+                classes to JSON format, validation of HTTP requests, generation of project documentation, etc. <br>
+                Thus, the runtime of Your microservice, which uses the RxMicro framework, does not contain any redundant adapters, proxies,
+                and a slow reflection.
+            </p>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <section id="benefits" class="container">
+        <h2 class="text-center">Benefits</h2>
+        <div class="row">
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-at" style="margin-left:-17px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>Declarative programming using annotations.</h5>
+                    <div class="content">
+                        <p>Build reactive HTTP handlers, clients, data repositories, which are implemented at compile-time, reducing memory
+                            consumption.</p>
+                        <p>Read more at the <a href="#features">Supported Features</a> section.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-project-diagram" style="margin-left:-22px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>CDI by demand.</h5>
+                    <div class="content">
+                        <p>For simplest microservices CDI is often redundant, therefore the RxMicro framework allows to enable/disable CDI by demand.</p>
+                        <p>For Unit tests of components, which don't use CDI, the RxMicro framework introduces the
+                            <a href="doc/latest/user-guide/testing.html#testing-alternatives-section">
+                                <code>@Alternative</code>
+                            </a> feature.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-user" style="margin-left:-16px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>Human-readable generated code.</h5>
+                    <div class="content">
+                        <p>For reliable systems, a developer must control everything. For these purposes, the RxMicro framework generates a human-readable
+                            code.</p>
+                        <p>
+                            Thus, a developer can read the generated code or even override it if it will be necessary.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-spell-check" style="margin-left:-20px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>Inefficient source code verifier.</h5>
+                    <div class="content">
+                        <p>
+                            The RxMicro framework can run as many verifications as needed because the
+                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/javax/annotation/processing/Processor.html">
+                                Java annotation processor
+                            </a>
+                            works at compile-time (Not at startup time or runtime).
+                        </p>
+                        <p>Thus, the quality of Your code can be verified as quickly as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                   <i class="fas fa-wave-square" style="margin-left:-22px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>Runtime without reflection.</h5>
+                    <div class="content">
+                        <p>Serialization/Deserialization in 28/17 times faster without reflection:</p>
+                        <pre class="highlightjs highlight code">
+    <code class="language-txt hljs" data-lang="txt">Benchmark                    Score  Units
+readDirectField         753348.188 ops/ms
+readUsingReflection      26241.478 ops/ms
+writeDirectField        344623.904 ops/ms
+writeUsingReflection     19430.735 ops/ms</code>
+</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-balance-scale-left" style="margin-left:-22px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>The RxMicro framework is lightweight.</h5>
+                    <div class="content">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Size</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Alpine Base Docker Image</td>
+                                <td>5.6 Mb</td>
+                            </tr>
+                            <tr>
+                                <td>Alpine JRE 11</td>
+                                <td>36.7 Mb</td>
+                            </tr>
+                            <tr>
+                                <td>Netty Runtime Libs</td>
+                                <td>2.6 Mb</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RxMicro Libs</strong></td>
+                                <td><strong>0.328 Mb</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Reactor Core Lib</td>
+                                <td>1.5 Mb</td>
+                            </tr>
+                            <tr>
+                                <td>RxJava3 Lib</td>
+                                <td>2.5 Mb</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-tachometer-alt" style="margin-left:-20px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>Fast startup time.</h5>
+                    <div class="content">
+                        <p>
+                            Start in <strong>500 millis</strong> is an average metric without tuning of JVM or Netty.
+                        </p>
+                        <p>
+                            <i>(Start in <strong>5 millis</strong> is an average metric using
+                                <a href="https://www.graalvm.org/docs/reference-manual/native-image/">GraalVM native image</a>).
+                            </i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 item">
+                <span class="circle">
+                    <i class="fas fa-memory" style="margin-left:-22px"></i>
+                </span>
+                <div class="right-icon-text">
+                    <h5>Reduced memory footprint.</h5>
+                    <div class="content">
+                        <p>
+                            Requires a minimum <strong>3Mb</strong> of Heap (<code>-Xmx3M -Xms3M</code>) for a successful start without
+                            tuning of JVM or Netty.
+                        </p>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Runtime</th>
+                                <th>maxRSS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>JVM Runtime</td>
+                                <td>65 Mb</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.graalvm.org/docs/reference-manual/native-image/">GraalVM native image</a></td>
+                                <td>17 Mb</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <section id="features" class="container">
+        <h2 class="text-center">Supported Features</h2>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Declarative handlers of HTTP requests</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/rest-controller.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> REST Controller</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">final class HelloController {
+
+    @GET("/")
+    CompletableFuture&lt;Response&gt; handle() {
+        return CompletableFuture.supplyAsync(() -&gt;
+                new Response("Hello World!"));
+    }
+}</code>
+</pre>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Declarative REST Client</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/rest-client.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> REST Client</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">@RestClient
+interface HelloClient {
+
+    @GET("/")
+    Single&lt;Response&gt; handle();
+
+}
+    </code>
+</pre>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Request Validation</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/validation.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Validation</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">final class HelloController {
+    @PUT("/")
+    void handle(final <span class="hljs-meta">@Email</span> String email) {
+        sendNotification(email);
+    }
+}</code>
+</pre>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">REST MicroServices Documentation</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/project-documentation.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Project Documentation</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">module quick.start {
+    requires rxmicro.rest.server.netty;
+    requires rxmicro.rest.server.exchange.json;
+
+    requires static rxmicro.documentation.asciidoctor;
+}</code>
+</pre>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Declarative PostgreSQL Data Repositories</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/data-postgresql.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Postgre SQL Data Repositories</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">@PostgreSQLRepository
+interface DataRepository {
+
+    @Select("SELECT * FROM ${table} WHERE id = ?")
+    Mono&lt;Product&gt; findProduct(long id);
+}</code>
+</pre>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Declarative Mongo Data Repositories</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/data-mongo.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Mongo Data Repositories</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">@MongoRepository(collection = "product")
+interface DataRepository {
+
+    @Find(query = "{_id: ?}")
+    Mono&lt;Product&gt; findProduct(long id);
+}</code>
+</pre>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Contexts and Dependency Injection</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/cdi.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i
+                            class="fa fa-angle-right"></i> Contexts and Dependency Injection</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">final class BusinessService {
+
+    @Inject
+    DataRepository repository;
+
+    @PostConstruct
+    void postConstruct() {
+
+    }
+
+    Mono&lt;Long&gt; buy(final Order order) {
+        return repository.createOrder(order)
+                .flatMap(id -&gt; sendEmail(order)
+                        .thenReturn(id)
+                );
+    }
+}</code>
+</pre>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Fast and Easy Testing</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/testing.html" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Testing</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-java hljs" data-lang="java">@RxMicroRestBasedMicroServiceTest(Controller.class)
+final class ControllerTest {
+
+    private BlockingHttpClient blockingHttpClient;
+
+    @Test
+    void Should_return_Hello_World_message() {
+        final ClientHttpResponse response =
+                    blockingHttpClient.get("/");
+
+        assertEquals(
+            jsonObject("message", "Hello World!"),
+            response.body()
+        );
+        assertEquals(200, response.statusCode());
+    }
+}</code>
+</pre>
+            </div>
+        </div>
+        <!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="row">
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">Uber Jar</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/java-integration.html#java-integration-unnamed-module-uber-jar" class="read-more">
+                        Read more at <span class="guide">User Guide <i
+                            class="fa fa-angle-right"></i> Uber Jar</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-text hljs" data-lang="text">:$ <b>ls</b> -lh
+<span class="console-output">-rw-rw-r-- <b>1,4M</b> uber-jar-1.0-SNAPSHOT.jar</span>
+<span class="console-output">-rw-rw-r-- <b>9,8K</b> original-uber-jar-1.0-SNAPSHOT.jar</span>
+
+:$ <b>java</b> -jar unnamed-module-uber-jar-1.0-SNAPSHOT.jar
+<span class="console-output">Server started at 0.0.0.0:8080 in 500 millis</span>
+    </code>
+</pre>
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <h5 class="text-center">GraalVM Native Image</h5>
+                <p class="text-center">
+                    <a href="doc/latest/user-guide/java-integration.html#java-integration-graalvm-native-image" class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Using GraalVM</span>
+                    </a>
+                </p>
+                <pre class="highlightjs highlight code">
+    <code class="language-text hljs" data-lang="text">:$ <b>ls</b> -lh
+<span class="console-output">-rw-rw-r-- <b>1,4M</b> uber-jar-1.0-SNAPSHOT.jar</span>
+<span class="console-output">-rwxrwxr-x <b>17M</b>  HelloWorldMicroService</span>
+
+:$ <b>./HelloWorldMicroService</b>
+<span class="console-output">Server started at 0.0.0.0:8080 in 5 millis</span>
+    </code>
+</pre>
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <!-- ------------------------------------------------------------------------------------------------------------------------------- -->
+    <section id="reactive-lib-support" class="container">
+        <h2 class="text-center">Reactive Library Support</h2>
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="static/img/java.png" class="card-img-top" alt="java">
+                    <div class="card-body">
+                        <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/package-summary.html">
+                            <h4 class="card-title">Java SE Concurrent</h4>
+                        </a>
+                        <div class="text-center">
+                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a>
+                            <span class="delimiter"></span>
+                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletionStage.html">CompletionStage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="static/img/project-reactor.png" class="card-img-top" alt="project-reactor">
+                    <div class="card-body">
+                        <a href="https://projectreactor.io/docs/core/release/reference/">
+                            <h4 class="card-title">Project Reactor</h4>
+                        </a>
+                        <div class="text-center">
+                            <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html">Mono</a>
+                            <span class="long delimiter"></span>
+                            <a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html">Flux</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="static/img/rxjava3.png" class="card-img-top" alt="rxjava3">
+                    <div class="card-body">
+                        <a href="https://github.com/ReactiveX/RxJava">
+                            <h4 class="card-title">Rx Java 3</h4>
+                        </a>
+                        <div class="text-center">
+                            <a href="http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Single.html">Single</a>
+                            <span class="delimiter"></span>
+                            <a href="http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Maybe.html">Maybe</a>
+                            <span class="delimiter"></span>
+                            <a href="http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html">Flowable</a>
+                            <span class="delimiter"></span>
+                            <a href="http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Completable.html">Completable</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <hr/>
+    <div class="container">
+        <p>The RxMicro framework is licensed under the <a href="https://github.com/rxmicro/rxmicro/blob/master/LICENSE">Apache Software License 2.</a></p>
+        <p class="copyright">Copyright © 2020 The RxMicro Team</p>
+    </div>
+</footer>
+
+<script src="static/js/jquery.slim.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+</body>
+</html>
