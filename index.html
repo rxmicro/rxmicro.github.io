@@ -18,8 +18,10 @@
             <div class="row">
                 <div class="offset-md-1 col-md-10 col-sm-12">
                     <img src="static/img/rxmicro-logo.png" class="rounded mx-auto d-block logo">
-                    <h1><strong class="name">RxMicro</strong> is a modern, full-stack framework for building <strong>reactive</strong>
-                        microservices using Java 11</h1>
+                    <h1>
+                        <strong class="name">RxMicro</strong> is a modern, full-stack framework for building <strong>reactive</strong>
+                        microservices using Java 11
+                    </h1>
                 </div>
             </div>
         </div>
@@ -63,17 +65,18 @@
                 <i>(For using of the blocking operations You must choose any other framework or library).</i>
             </p>
             <p>
-                The <strong>RxMicro</strong> framework contains several different components designed to make it easier for you to write compelling
-                reactive applications using <a href="https://openjdk.java.net/projects/jdk/11/">Java 11</a> or higher.
+                The <strong>RxMicro</strong> framework contains several different components designed to make it easier for you to write
+                compelling reactive applications using <a href="https://openjdk.java.net/projects/jdk/11/">Java 11</a> or higher.
             </p>
             <p>
                 The <strong>RxMicro</strong> framework uses the
                 <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.compiler/javax/annotation/processing/Processor.html">
                     Java annotation processors
                 </a>.
-                This means during compiling Your microservice project, the <strong>RxMicro</strong> framework reads the <code>RxMicro Annotations</code>
-                and generates additional classes that contain the standard logic: registration of URL mapping, serialization, and deserialization of Java
-                classes to JSON format, validation of HTTP requests, generation of project documentation, etc. <br>
+                This means during compiling Your microservice project, the <strong>RxMicro</strong> framework reads the
+                <code>RxMicro Annotations</code> and generates additional classes that contain the standard logic: registration of
+                URL mapping, serialization, and deserialization of Java classes to JSON format, validation of HTTP requests,
+                generation of project documentation, etc. <br>
                 Thus, the runtime of Your microservice, which uses the RxMicro framework, does not contain any redundant adapters, proxies,
                 and a slow reflection.
             </p>
@@ -105,7 +108,8 @@
                 <div class="right-icon-text">
                     <h5>CDI by demand.</h5>
                     <div class="content">
-                        <p>For simplest microservices CDI is often redundant, therefore the RxMicro framework allows to enable/disable CDI by demand.</p>
+                        <p>For simplest microservices CDI is often redundant, therefore the RxMicro framework allows
+                            to enable/disable CDI by demand.</p>
                         <p>For Unit tests of components, which don't use CDI, the RxMicro framework introduces the
                             <a href="https://docs.rxmicro.io/latest/user-guide/testing.html#testing-alternatives-section">
                                 <code>@Alternative</code>
@@ -124,8 +128,8 @@
                 <div class="right-icon-text">
                     <h5>Human-readable generated code.</h5>
                     <div class="content">
-                        <p>For reliable systems, a developer must control everything. For these purposes, the RxMicro framework generates a human-readable
-                            code.</p>
+                        <p>For reliable systems, a developer must control everything. For these purposes, the RxMicro framework generates
+                            a human-readable code.</p>
                         <p>
                             Thus, a developer can read the generated code or even override it if it will be necessary.
                         </p>
@@ -447,9 +451,9 @@ final class ControllerTest {
             <div class="col-md-12 col-lg-6">
                 <h5 class="text-center">Uber Jar</h5>
                 <p class="text-center">
-                    <a href="https://docs.rxmicro.io/latest/user-guide/java-integration.html#java-integration-unnamed-module-uber-jar" class="read-more">
-                        Read more at <span class="guide">User Guide <i
-                            class="fa fa-angle-right"></i> Uber Jar</span>
+                    <a href="https://docs.rxmicro.io/latest/user-guide/java-integration.html#java-integration-unnamed-module-uber-jar"
+                       class="read-more">
+                        Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Uber Jar</span>
                     </a>
                 </p>
                 <pre class="highlightjs highlight code">
@@ -465,7 +469,8 @@ final class ControllerTest {
             <div class="col-md-12 col-lg-6">
                 <h5 class="text-center">GraalVM Native Image</h5>
                 <p class="text-center">
-                    <a href="https://docs.rxmicro.io/latest/user-guide/java-integration.html#java-integration-graalvm-native-image" class="read-more">
+                    <a href="https://docs.rxmicro.io/latest/user-guide/java-integration.html#java-integration-graalvm-native-image"
+                       class="read-more">
                         Read more at <span class="guide">User Guide <i class="fa fa-angle-right"></i> Using GraalVM</span>
                     </a>
                 </p>
@@ -495,9 +500,13 @@ final class ControllerTest {
                             <h4 class="card-title">Java SE Concurrent</h4>
                         </a>
                         <div class="text-center">
-                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">CompletableFuture</a>
+                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletableFuture.html">
+                                CompletableFuture
+                            </a>
                             <span class="delimiter"></span>
-                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletionStage.html">CompletionStage</a>
+                            <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/CompletionStage.html">
+                                CompletionStage
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -542,7 +551,10 @@ final class ControllerTest {
 <footer>
     <hr/>
     <div class="container">
-        <p>The RxMicro framework is licensed under the <a href="https://github.com/rxmicro/rxmicro/blob/master/LICENSE">Apache Software License 2.</a></p>
+        <p>
+            The RxMicro framework is licensed under the
+            <a href="https://github.com/rxmicro/rxmicro/blob/master/LICENSE">Apache Software License 2.</a>
+        </p>
         <p class="copyright">Copyright © 2020 The RxMicro Team</p>
     </div>
 </footer>
